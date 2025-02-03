@@ -6,7 +6,7 @@ function renderProducts() {
         <div class="product-card">
             <img src="${product.image}" alt="${product.name}" class="product-image">
             <h3 class="product-title">${product.name}</h3>
-            <p class="product-price">$${product.price.toFixed(2)}</p>
+            <p class="product-price">$${product.price.toLocaleString('es-CO', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
             <button class="btn btn-primary" onclick="shoppingCart.addItem(${product.id})">
                 Agregar al carrito
             </button>

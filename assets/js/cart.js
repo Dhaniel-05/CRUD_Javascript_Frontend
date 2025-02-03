@@ -73,7 +73,7 @@ class ShoppingCart {
                 <img src="${item.image}" alt="${item.name}">
                 <div class="item-details">
                     <h4>${item.name}</h4>
-                    <p>$${item.price.toFixed(2)}</p>
+                    <p>$${item.price.toLocaleString('es-CO', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     <div class="item-quantity">
                         <button class="quantity-btn" onclick="shoppingCart.updateQuantity(${item.id}, -1)">-</button>
                         <span>${item.quantity}</span>
@@ -84,6 +84,6 @@ class ShoppingCart {
         `).join('');
 
         // Actualizar total
-        cartTotal.textContent = this.getTotal().toFixed(2);
+        cartTotal.textContent = `${this.getTotal().toLocaleString('es-CO', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     }
 }
