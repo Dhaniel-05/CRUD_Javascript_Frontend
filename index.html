@@ -7,34 +7,54 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <h1>Mi Tienda Online</h1>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Buscar productos...">
+            <div id="search-results" class="search-results"></div>
+        </div>
         <div class="cart-icon" onclick="toggleCart()">
             🛒
             <span class="cart-count">0</span>
         </div>
     </header>
 
+    <!-- Contenido Principal -->
     <div class="container">
         <div class="products-grid" id="products-container"></div>
     </div>
 
-    <div class="cart-modal" id="cart-modal">
-        <div class="cart-header">
-            <h2>Carrito de Compras</h2>
-            <button class="close-cart" onclick="toggleCart()">×</button>
+    <!-- Modales -->
+    <div class="modals-container">
+        <!-- Modal del Carrito -->
+        <div class="cart-modal" id="cart-modal">
+            <div class="cart-header">
+                <h2>Carrito de Compras</h2>
+                <button class="close-cart" onclick="toggleCart()">×</button>
+            </div>
+            <div class="cart-items" id="cart-items"></div>
+            <div class="cart-total">
+                <h3>Total: $<span id="cart-total">0.00</span></h3>
+                <button class="btn btn-primary" onclick="checkout()">
+                    Proceder al pago
+                </button>
+            </div>
         </div>
-        <div class="cart-items" id="cart-items"></div>
-        <div class="cart-total">
-            <h3>Total: $<span id="cart-total">0.00</span></h3>
-            <button class="btn btn-primary" onclick="checkout()">
-                Proceder al pago
-            </button>
+
+        <!-- Modal de Producto -->
+        <div id="product-modal" class="product-modal">
+            <div class="product-modal-content">
+                <span class="close-modal">&times;</span>
+                <div id="modal-product-details"></div>
+            </div>
         </div>
+
+        <!-- Overlay compartido -->
+        <div class="overlay" id="overlay" onclick="toggleCart()"></div>
     </div>
 
-    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
-
+    <!-- Scripts -->
     <script src="assets/js/data.js"></script>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/app.js"></script>
